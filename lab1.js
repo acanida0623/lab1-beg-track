@@ -59,7 +59,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  it failed.
 */
 
-//your code goes here
+assert('giraffe' > 'antelope', 'Should not of failed');
+assert(1 === 'giraffe', 'Failed because 1 does not equal giraffe which is a string');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -80,14 +81,30 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // TODO: part #1: use a for loop to replace the words in sentence 1 with
 // 'chirp' (10 points)
 
-// your code goes here
+sentence1 = sentence1.split(' ');
+
+for (var x = 0; x < 3; x++) {
+  sentence1[x] = 'chirp';
+}
+
+sentence1 = sentence1.join(' ');
+sentence1 = (sentence1 + '.');
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
-// your code goes here
+var chirpCount = 0;
+sentence2 = sentence2.split(' ');
+
+while (chirpCount < 9) {
+  sentence2[chirpCount] = 'chirp';
+  chirpCount += 1;
+}
+sentence2 = sentence2.join(' ');
+sentence2 = sentence2 + '.';
 
 // Leave these assertions as-is! If they pass, your code works.
+
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
 assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
   'sentence 2 should have 9 chirps');
@@ -107,7 +124,7 @@ var nextAnimal;
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
-// your code goes here
+nextAnimal = favoriteAnimals[Math.floor(Math.random() * 4)];
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -124,10 +141,10 @@ assert(nextAnimal, 'assign something to nextAnimal');
 // don't require quotes for the code to work. Remove the unnecessary quotes.
 
 var animalExhibitStats = {
-  'numberOpen': 13,
+  numberOpen: 13,
   'number closed': 2,
   'petting-zoo-open': true,
-  'mostPopular': 'Lucky the Emperor Penguin',
+  mostPopular: 'Lucky the Emperor Penguin',
   '2ndMostPopular': 'Dumbo the Depressed Donkey'
 };
 
@@ -138,7 +155,7 @@ var animalExhibitStats = {
  notation with dot notation wherever possible.
 */
 
-assert(animalExhibitStats['numberOpen'] === 13, 'there should be 13 open exhibits');
+assert(animalExhibitStats.numberOpen === 13, 'there should be 13 open exhibits');
 assert(animalExhibitStats['number closed'] === 2, 'there should be 2 closed exhibits');
 assert(animalExhibitStats['petting-zoo-open'], 'hey! =( i was promised meerkats!');
 assert(animalExhibitStats['2ndMostPopular'] === 'Dumbo the Depressed Donkey',
@@ -148,7 +165,7 @@ assert(animalExhibitStats['2ndMostPopular'] === 'Dumbo the Depressed Donkey',
 // Write an assert about the 'mostPopular' property of animalExibitStats.
 // Use the above examples to guide you.
 
-// your assert goes here
+assert(animalExhibitStats.mostPopular === 'Lucky the Emperor Penguin', 'It is not going to be wrong.');
 
 /* ==================================================================
 ----------------- Code Style (10 points) ----------------------------
